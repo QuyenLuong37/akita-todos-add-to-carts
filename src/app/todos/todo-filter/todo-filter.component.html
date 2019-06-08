@@ -1,0 +1,7 @@
+<div class="form-group">
+  <h5 for="filter" class="text-secondary">Filter: </h5>
+  <select id="filter" class="form-control" [formControl]='filterForm'>
+    <option *ngFor="let item of filters" [ngValue]='item.value'>{{item.title}}</option>
+  </select>
+</div>
+

@@ -1,0 +1,52 @@
+
+
+.content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50px;
+  background: rgb(34, 33, 33);
+  p {
+    color: #fff;
+  }
+}
+
+.navbar {
+  display: flex;
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: 300;
+    color: lightblue;
+  }
+  .space {
+    flex: 1 1 auto;
+  }
+  .nav-content {
+    .nav-link {
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 300;
+      padding: 10px 12px;
+      margin-right: 10px;
+      color: aliceblue;
+      position: relative;
+      .count-item {
+        display: inline-block;
+        background: tomato;
+        border-radius: 5px;
+        padding: 0 5px;
+        color: #ffffff;
+        margin-left: 5px;
+        font-size: 16px;
+        position: absolute;
+        top: 5px;
+        right: -8px;
+      }
+    }
+  }
+}

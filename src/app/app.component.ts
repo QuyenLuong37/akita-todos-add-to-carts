@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartQuery } from './cart/state/cart.query';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'akita-cart';
+  constructor(private queryCart: CartQuery) {}
+
+  count$ = this.queryCart.selectCount();
 }

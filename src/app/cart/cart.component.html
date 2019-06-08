@@ -1,0 +1,33 @@
+<ng-container *ngIf="listCarts$ | async as carts">
+  <table class="table table-light" *ngIf="carts.length">
+    <thead class="thead-light">
+      <tr>
+        <th>id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cart of carts" class="table-info">
+        <td>{{ cart.id }}</td>
+        <td>{{ cart.title }}</td>
+        <td>{{ cart.description }}</td>
+        <td><button class='btn btn-light' (click)="addQuantity(cart.id)">+</button><span class="p-2">{{ cart.quantity }}</span><button class='btn btn-light' (click)='subQuantity(cart.id)'>-</button></td>
+        <td>{{ cart.total }}$</td>
+        <th>
+          <button class="btn btn-danger" (click)='removeCartItem(cart.id)'>
+            <i class="fa fa-recycle" aria-hidden="true"></i>
+          </button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <h1 *ngIf="!carts.length">Your cart is empty</h1>
+  <h4 *ngIf="total$ | async">
+    <i class="fa fa-credit-card" aria-hidden="true"></i> Total:
+    {{ total$ | async }}$
+  </h4>
+</ng-container>

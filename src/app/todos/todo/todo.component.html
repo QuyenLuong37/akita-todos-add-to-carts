@@ -1,0 +1,12 @@
+<div class="todo">
+  <div class="check-box">
+    <label for="check" class="label">
+      <input type="checkbox" id="check" [formControl]="todoCheckbox" />
+    </label>
+    <span class="title">{{ todo.title }}</span>
+  </div>
+  <span class="space"></span>
+  <button class="btn btn-danger" (click)="delete.emit(todo.id)">
+    <i class="fas fa-trash-alt "></i>
+  </button>
+</div>

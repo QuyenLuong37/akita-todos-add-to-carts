@@ -1,0 +1,21 @@
+.todo{
+  display: flex;
+  border-bottom: 1px solid #b6abab;
+  padding: 10px 20px;
+  border-top: 1px solid #b6abab;
+  .check-box{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    .label{
+      margin-bottom: 0;
+      padding-right: 11px;
+    }
+    .title{
+      font-size: 21px;
+    }
+  }
+  .space{
+    flex: 1 1 auto;
+  }
+}

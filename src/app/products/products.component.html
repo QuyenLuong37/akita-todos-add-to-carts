@@ -1,0 +1,20 @@
+<section class="box">
+  <h1 class='text-grey'>Product</h1>
+  <div class="sortBy">
+    <select class="custom-select" [formControl]='sortBy'>
+      <option value="title">Title</option>
+      <option value="price">Price</option>
+    </select>
+  </div>
+
+  <ng-container *ngIf="listProducts$">
+    <div class="row">
+      <app-product
+        class="col-sm-2 col-md-3 col-lg-3"
+        *ngFor="let product of (listProducts$ | async)"
+        [product]='product'
+        (add)='addToCart($event)'
+      ></app-product>
+    </div>
+  </ng-container>
+</section>

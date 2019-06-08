@@ -1,0 +1,55 @@
+<div class="form-group">
+  <h5 for="todoID" class="text-secondary">Add ToDo:</h5>
+  <input
+    type="text"
+    [formControl]="addControls"
+    class="form-control"
+    name="todo"
+    id="todoID"
+    #input
+    placeholder="Add ToDo ...."
+  />
+  <button class="btn btn-primary" (click)="addTodo()">Add Todo</button>
+</div>
+<app-todo-filter
+  (changeFilter)="updateFilter($event)"
+  [filters]="filters"
+  [active]='activeFilter$ | async'
+></app-todo-filter>
+<div class="select-all">
+  <label for="all" class="label">
+    <input
+      type="checkbox"
+      id="all"
+      bind-checked="checkAll$ | async"
+      [formControl]="selectAll"
+    />
+  </label>
+  <h4 class="flex">Select All</h4>
+</div>
+<app-todo
+  *ngFor="let todo of todoList$ | async"
+  [todo]="todo"
+  (complete)="complete($event)"
+  (delete)="remove($event)"
+>
+</app-todo>
+
+<div class="history">
+  <button
+    class="btn btn-outline-primary"
+    [disabled]="!stateHistory.hasPast"
+    (click)="undo()"
+  >
+    <i class="fa fa-angle-left" aria-hidden="true"></i>
+    Undo
+  </button>
+  <button
+    class="btn btn-outline-primary"
+    [disabled]="!stateHistory.hasFuture"
+    (click)="redo()"
+  >
+    Redo
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+  </button>
+</div>
